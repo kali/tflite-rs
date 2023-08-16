@@ -512,7 +512,7 @@ mod tests {
             .collect();
 
         assert_eq!(tensors.len(), source_tensors.len());
-        for (tensor, source_tensor) in tensors.into_iter().zip(source_tensors.into_iter()) {
+        for (tensor, source_tensor) in tensors.into_iter().zip(source_tensors) {
             assert_eq!(tensor.shape, source_tensor.shape);
             assert_eq!(tensor.typ, source_tensor.typ);
             assert_eq!(tensor.name, source_tensor.name);
