@@ -24,6 +24,7 @@ jobs:
         with:
           profile: minimal
           toolchain: ${{matrix.rust}}
+      - run: rustup update
       - run: cargo fmt -- --check
       - run: cargo clippy --all-targets -- --deny warnings --allow unknown-lints
       - run: cargo test --features generate_model_apis -- --nocapture
