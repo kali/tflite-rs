@@ -260,6 +260,7 @@ fn import_tflite_types() {
 
     // Write the bindings to the $OUT_DIR/tflite_types.rs file.
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("tflite_types.rs");
+    eprintln!("{}", bindings.to_string());
     bindings.write_to_file(out_path).expect("Couldn't write bindings!");
 }
 
