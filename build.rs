@@ -242,6 +242,7 @@ fn import_tflite_types() {
         .blocklist_type("tflite::Interpreter_TfLiteDelegatePtr")
         .blocklist_type("tflite::Interpreter_State")
         .default_enum_style(EnumVariation::Rust { non_exhaustive: false })
+        .manually_drop_union(".*Vec.*Storage")
         .derive_partialeq(true)
         .derive_eq(true)
         .header("csrc/tflite_wrapper.hpp")
