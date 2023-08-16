@@ -262,7 +262,7 @@ fn import_tflite_types() {
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("tflite_types.rs");
     bindings.write(Box::new(std::io::stderr())).unwrap();
     panic!();
-    bindings.write_to_file(out_path).expect("Couldn't write bindings!");
+//    bindings.write_to_file(out_path).expect("Couldn't write bindings!");
 }
 
 fn build_inline_cpp() {
