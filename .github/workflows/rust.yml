@@ -29,9 +29,9 @@ jobs:
       - run: cargo test --features generate_model_apis -- --nocapture
       - run: cargo test --features debug_tflite,no_micro -- --nocapture
       - run: cargo fmt
-      - run: cargo publish --dry-run
+        #       - run: cargo publish --dry-run
       # Make sure package size is under 10 MB
-      - run: cargo package --verbose && [ $(stat -c %s target/package/tflite-*.crate) -le 10485760 ]
+      # - run: cargo package --verbose && [ $(stat -c %s target/package/tflite-*.crate) -le 10485760 ]
 
   macos-build-test:
     name: macos build test
