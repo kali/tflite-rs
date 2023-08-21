@@ -260,10 +260,12 @@ fn import_tflite_types() {
 
     // Write the bindings to the $OUT_DIR/tflite_types.rs file.
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap()).join("tflite_types.rs");
-    let bindings =
-        bindings.to_string().replace("pub _M_val: _Tp", "pub _M_val: std::mem::ManuallyDrop<_Tp>");
-    println!("{bindings}");
-    std::fs::write(out_path, bindings).expect("Couldn't write bindings!");
+    let fixed = bindings
+        .to_string()
+        .replace("pub _M_val: _Tp", "pub _M_val: std::mem::ManuallyDrop<_Tp>")
+        .replace("pub _M_val : _Tp", "pub _M_val: std::mem::ManuallyDrop<_Tp>");
+    println!("{fixed}");
+    std::fs::write(out_path, fixed).expect("Couldn't write bindings!");
 }
 
 fn build_inline_cpp() {
